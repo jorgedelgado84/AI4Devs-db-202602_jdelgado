@@ -6,7 +6,9 @@
 
 4. Actualiza el schema de Prisma.
 
-5. Crea el código SQL de la generación de la base de datos llamada lti_ats_db de acuerdo al diagrama entidad relación y genera los índices de acuerdo a mejorar el rendimiento de la base de datos.
+5. Valida que address este bien implementada que este referenciada de manera correcta
+
+5. Crea el código SQL de la generación de la base de datos llamada LTIdb de acuerdo al diagrama entidad relación y genera los índices de acuerdo a mejorar el rendimiento de la base de datos.
 
 6. Agrega el MCP para conexión a postgres.
 

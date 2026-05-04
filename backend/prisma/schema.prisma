@@ -116,11 +116,11 @@ model Address {
 
 model Candidate {
   id              Int              @id @default(autoincrement())
-  addressId       Int?
   firstName       String           @db.VarChar(100)
   lastName        String           @db.VarChar(100)
   email           String           @unique @db.VarChar(255)
   phone           String?          @db.VarChar(20)
+  addressId       Int?
   address         Address?         @relation(fields: [addressId], references: [id])
   educations      Education[]
   workExperiences WorkExperience[]

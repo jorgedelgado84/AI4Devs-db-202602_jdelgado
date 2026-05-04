@@ -1,3 +1,4 @@
+```mermaid
 erDiagram
     COMPANY {
         int id PK
@@ -116,3 +117,4 @@ erDiagram
     INTERVIEW ||--|| INTERVIEW_STEP : consists_of
     INTERVIEW ||--|| INTERVIEW_RESULT : produces
     EMPLOYEE ||--o{ INTERVIEW : conducts
+```

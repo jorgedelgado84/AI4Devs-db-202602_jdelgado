@@ -1,17 +1,4 @@
 -- ============================================================
--- Database: LTIdb
--- Description: LTI Applicant Tracking System
--- ============================================================
-
-CREATE DATABASE LTIdb
-    WITH
-    ENCODING    = 'UTF8'
-    LC_COLLATE  = 'es_ES.UTF-8'
-    LC_CTYPE    = 'es_ES.UTF-8';
-
-\c LTIdb;
-
--- ============================================================
 -- TABLAS DE CATÁLOGO
 -- ============================================================
 
@@ -98,7 +85,7 @@ CREATE TABLE position (
     salary_min           NUMERIC(10,2),
     salary_max           NUMERIC(10,2),
     benefits             TEXT,
-    application_deadline DATE,
+    application_deadline TIMESTAMP,
     CONSTRAINT fk_position_company        FOREIGN KEY (company_id)          REFERENCES company(id),
     CONSTRAINT fk_position_interview_flow FOREIGN KEY (interview_flow_id)   REFERENCES interview_flow(id),
     CONSTRAINT fk_position_employment     FOREIGN KEY (employment_type_id)  REFERENCES employment_type(id)
@@ -141,8 +128,8 @@ CREATE TABLE education (
     candidate_id INT          NOT NULL,
     institution  VARCHAR(100) NOT NULL,
     title        VARCHAR(250) NOT NULL,
-    start_date   DATE         NOT NULL,
-    end_date     DATE,
+    start_date   TIMESTAMP    NOT NULL,
+    end_date     TIMESTAMP,
     CONSTRAINT fk_education_candidate FOREIGN KEY (candidate_id) REFERENCES candidate(id)
 );
 
@@ -152,8 +139,8 @@ CREATE TABLE work_experience (
     company      VARCHAR(100) NOT NULL,
     position     VARCHAR(100) NOT NULL,
     description  VARCHAR(200),
-    start_date   DATE         NOT NULL,
-    end_date     DATE,
+    start_date   TIMESTAMP    NOT NULL,
+    end_date     TIMESTAMP,
     CONSTRAINT fk_work_experience_candidate FOREIGN KEY (candidate_id) REFERENCES candidate(id)
 );
 
@@ -174,7 +161,7 @@ CREATE TABLE application (
     id               SERIAL PRIMARY KEY,
     position_id      INT         NOT NULL,
     candidate_id     INT         NOT NULL,
-    application_date DATE        NOT NULL DEFAULT CURRENT_DATE,
+    application_date TIMESTAMP   NOT NULL DEFAULT NOW(),
     status           VARCHAR(50) NOT NULL,
     notes            TEXT,
     CONSTRAINT fk_application_position            FOREIGN KEY (position_id)  REFERENCES position(id),
@@ -187,7 +174,7 @@ CREATE TABLE interview (
     application_id    INT  NOT NULL,
     interview_step_id INT  NOT NULL,
     employee_id       INT  NOT NULL,
-    interview_date    DATE NOT NULL,
+    interview_date    TIMESTAMP NOT NULL,
     result_id         INT,
     score             INT,
     notes             TEXT,
