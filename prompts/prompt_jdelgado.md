@@ -8,13 +8,11 @@
 
 5. Valida que address este bien implementada que este referenciada de manera correcta
 
-5. Crea el código SQL de la generación de la base de datos llamada LTIdb de acuerdo al diagrama entidad relación y genera los índices de acuerdo a mejorar el rendimiento de la base de datos.
+6. Crea el código SQL de la generación de la base de datos llamada LTIdb de acuerdo al diagrama entidad relación y genera los índices de acuerdo a mejorar el rendimiento de la base de datos.
 
-6. Agrega el MCP para conexión a postgres.
+7. Agrega el MCP para conexión a postgres.
 
-7. Usando el MCP de postgres, crea la base de datos de LTIdb.
+8. Usando el MCP de postgres, crea la base de datos de LTIdb.
 
-8. Lista las tablas creadas y valida que no falte ninguna, así como los índices.
-
-
+9. Lista las tablas creadas y valida que no falte ninguna, así como los índices.
 
